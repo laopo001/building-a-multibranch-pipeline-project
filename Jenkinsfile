@@ -9,14 +9,19 @@ pipeline {
         CI = 'true' 
     }
     stages {
-        stage('Build') {
+        stage('Install') {
             steps {
-                sh 'echo "master2 Build"'
+                sh 'npm install'
             }
         }
         stage('Test') {
             steps {
-                sh 'echo "master2 hello"'
+                sh 'npm test'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'npm run build'
             }
         }
     }
